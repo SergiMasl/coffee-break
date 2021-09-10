@@ -31,3 +31,7 @@ footer {
     margin: 0 auto;
     height: 7%;
 }
+
+.hidden {
+    display: none;
+}

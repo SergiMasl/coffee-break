@@ -1,5 +1,6 @@
-//const newsBtn = document.querySelector('#news')
+const creatPostBtn = document.querySelector('#creat_post-btn')
 const main = document.querySelector('.main')
+const creatPostForm = document.querySelector('.creat-post_form')
 
 const getNews = () => {
         fetch("http://localhost:3000/public/news", {
@@ -15,7 +16,6 @@ const getNews = () => {
                 console.log(response[0].autor)
 
                 response.forEach((item) => {
-                    console.log(item)
                     let element = document.createElement("div");
                     element.classList.add('news_contener');
                     element.innerHTML = `
@@ -43,3 +43,10 @@ const getNews = () => {
     //newsBtn.addEventListener('click', getNews)
 
 getNews()
+
+const creatPost = () => {
+    creatPostForm.classList.remove('hidden')
+}
+
+
+creatPostBtn.addEventListener('click', creatPost)

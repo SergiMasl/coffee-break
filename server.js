@@ -16,9 +16,17 @@ function getNews() {
 }
 
 app.get("/public/news", (req, res) => {
-        res.json(getNews())
-    })
-    //app.post();  express
+    res.json(getNews())
+})
+
+app.post("/public/news", (req, res) => {
+    console.log(res.body)
+        // res.render("about-success", {
+        //     "autor": "",
+        //     "title": "",
+        //     "text": """})
+        //res.send("X")
+})
 
 app.listen(3000, () => {
     console.log(`Example app listening at http://localhost: 3000}`)
