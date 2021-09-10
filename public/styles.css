@@ -35,3 +35,7 @@ footer {
 .hidden {
     display: none;
 }
+
+.creat-post_form {
+    margin-bottom: 100px;
+}

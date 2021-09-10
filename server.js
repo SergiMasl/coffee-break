@@ -1,6 +1,9 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json();
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -15,18 +18,27 @@ function getNews() {
     return JSON.parse(rawdata);
 }
 
-app.get("/public/news", (req, res) => {
+app.get("/api/news", (req, res) => {
     res.json(getNews())
 })
 
-app.post("/public/news", (req, res) => {
-    console.log(res.body)
-        // res.render("about-success", {
-        //     "autor": "",
-        //     "title": "",
-        //     "text": """})
-        //res.send("X")
-})
+app.post('/api/add', jsonParser, async(req, response) => {
+    const { message } = req.body;
+    console.log(req.body)
+    const post = req.body
+
+    const addPost = () => {
+        const oldPost = getNews();
+        oldPost.push(post);
+        const newPost = JSON.stringify(oldPost);
+
+        fs.writeFileSync('./news.json', newPost)
+    }
+
+    addPost()
+});
+
+
 
 app.listen(3000, () => {
     console.log(`Example app listening at http://localhost: 3000}`)
