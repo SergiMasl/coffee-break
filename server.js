@@ -8,12 +8,17 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/public/index.html")
 })
 
-let rawdata = fs.readFileSync('news.json')
-let news = JSON.parse(rawdata);
+
+
+function getNews() {
+    let rawdata = fs.readFileSync('news.json')
+    return JSON.parse(rawdata);
+}
 
 app.get("/public/news", (req, res) => {
-    res.json(news)
-})
+        res.json(getNews())
+    })
+    //app.post();  express
 
 app.listen(3000, () => {
     console.log(`Example app listening at http://localhost: 3000}`)

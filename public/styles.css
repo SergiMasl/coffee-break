@@ -1,0 +1,33 @@
+body {
+    background: beige;
+}
+
+.news_contener {
+    margin: 0 auto;
+    width: 80%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.news-wrap {
+    border: 1px solid #646464;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.news-item {
+    margin: 15px;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.44);
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 0 auto;
+    height: 7%;
+}
