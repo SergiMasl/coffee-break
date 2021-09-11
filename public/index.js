@@ -6,6 +6,8 @@ const postTitle = document.querySelector('.creat_title')
 const posttext = document.querySelector('.text')
 
 
+
+
 const post = {
     title: '',
     text: '',
@@ -79,6 +81,7 @@ const runAddPost = () => {
         .then(data => {
             console.log(data)
         })
+    main.innerHTML = '';
     getNews()
 }
 
