@@ -12,11 +12,15 @@
 <body>
 
     <div class='start'>
-        <button class='Sign_in'>Sign in</button>
+        <button class='sign_in'>Sign in</button>
         <button class='sign_up'>Sign out</button>
     </div>
 
     <div class='form-sign_up hidden'>
+        <label>
+            <p>User name</p>
+            <input type='text' class='userName'/>
+        </label>
         <label>
             <p>First name</p>
             <input type='text' class='fName'/>
@@ -27,18 +31,21 @@
         </label>
         <label>
             <p>Phone</p>
-            <input type='number' />
+            <input type='number' class='number' />
         </label>
         <label>
             <p>Email</p>
-            <input type='email' />
+            <input type='email' class='email' />
          </label>
         <label>
             <p>Password</p>
-            <input type='password' />
+            <input type='password' class='password' />
         </label>
         <label><p>Sign up</p> <button id='sign_up'>sign up</button></label>
     </div>
 
+
+
     <script src='./start.js'></script>
+
 </body>

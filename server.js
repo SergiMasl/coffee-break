@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 app.get('/start', (req, res) => {
     res.sendFile(__dirname + "/public/start.html")
 })
+app.get('/sign-in', (req, res) => {
+    res.sendFile(__dirname + "/public/sign-in.html")
+})
 
 
 
@@ -52,7 +55,7 @@ app.post('/api/start', jsonParser, async(req, res) => {
     const oldUsers = getUsers();
 
     const existendUser = oldUsers.find(elem => {
-        if (elem.fName === log.fName) {
+        if (elem.userName === log.userName) {
             return true;
         }
     })
@@ -67,6 +70,29 @@ app.post('/api/start', jsonParser, async(req, res) => {
     fs.writeFileSync('./login.json', newlog)
     return res.status(200).json({ message: 'success' });
 });
+
+app.post("/api/sign-in", jsonParser, async(req, res) => {
+    console.log('yep')
+    const user = req.body;
+    const oldUsers = getUsers();
+    console.log(user)
+
+    const checkUser = oldUsers.find(elem => {
+        if (elem.userName === user.userName && elem.password === user.password) {
+            return true;
+        }
+    })
+    if (checkUser) {
+        // нужно вернуть посты данного человека
+        return res.status(200).json({ message: 'success' }); //data
+    }
+
+    res.statusMessage = "Login or Password is not match";
+    return res.status(401).json({ message: 'Login or Password is not match' });
+
+})
+
+
 
 
 
